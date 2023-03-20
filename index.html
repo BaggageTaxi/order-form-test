@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order form example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Styles --->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="./jquery.datetimepicker.min.css"/>
+
+    <!-- Scripts --->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+    <script src="./jquery.datetimepicker.full.min.js"></script>
+
+</head>
+<body>
+    <form id="form">
+    <label>Number of items:</label>
+    <input type="number" id="numberOfItems" min="1" max="20" required>
+    <br/>
+
+    <label>Email:</label>
+    <input type="email" id="email" required>
+    <br/>
+
+    <label>Phone number:</label>
+    <select id="countryCode"></select>
+    <input type="number" id="phoneNumber" required>
+    <br/>
+
+    <label>Pickup date & time:</label>
+    <input type="text" id="pickupDateTime" required>
+    <br/>
+
+    <label>Pickup address:</label>
+    <input type="text" id="pickupAddress" required>
+    <div id="pickupMap" style="height: 300px; width: 500px;"></div>
+    <input type="hidden" id="pickupLatitude">
+    <input type="hidden" id="pickupLongitude">
+    <br/>
+
+    <label>Dropoff date & time:</label>
+    <input type="text" id="dropoffDateTime" required>
+    <br/>
+
+    <label>Dropoff address:</label>
+    <input type="text" id="dropoffAddress" required>
+    <div id="dropoffMap" style="height: 300px; width: 500px;"></div>
+    <input type="hidden" id="dropoffLatitude">
+    <input type="hidden" id="dropoffLongitude">
+    <br/>
+
+
+    <label>Airline name:</label>
+    <select id="airlineName"></select>
+
+    <label>Airline flight number:</label>
+    <input type="number" id="flightNumber" min="0" max="9999" required>
+    <br/>
+
+    <label>Price:</label>
+    <input type="text" id="priceCalculator" readonly>
+    <br/>
+
+    <label>Payment method:</label>
+    <select id="paymentMethod">
+        <option value="card">Card</option>
+        <option value="cash">Cash on collection</option>
+    </select>
+    <br/>
+
+    <button type="submit" id="submitButton" disabled>Submit</button>
+</form>
+
+<script>
+  $(document).ready(function() {
+    // Populate country code dropdown
+    // ...
+
+    // Initialize maps
+    // ...
+
+    // Calculate price
+    // ...
+
+    // Validate form and submit
+    $('#form').submit(function(event) {
+      event.preventDefault();
+
+      // Validate form fields
+      // ...
+
+      // Create JSON document and POST to API endpoint
+      // ...
+    });
+  });
+</script>
+
+
+<script src="./calling-codes.js"></script>
+<script src="./airlines.js"></script>
+<script src="./price-calculator.js"></script>
+<script src="./pickup-datetime.js"></script>
+<script src="./address-search.js?task=pickup"></script>
+<script src="./address-search.js?task=dropoff"></script>
+
+</body>
